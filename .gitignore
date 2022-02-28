@@ -31,6 +31,7 @@ fabric.properties
 out
 gen
 .gradle
+.gradle/**
 **/build/
 !src/**/build/
 gradle-app.setting
