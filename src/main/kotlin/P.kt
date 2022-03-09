@@ -31,6 +31,7 @@ sealed class P : SimbotProject() {
         init {
             println("System.getProperty(\"isSnapshot\"): ${System.getProperty("isSnapshot")}")
         }
+
         val SNAPSHOT = System.getProperty("isSnapshot")?.equals("true", true) ?: false
         const val GROUP = "love.forte.simbot"
         const val BOOT_GROUP = "love.forte.simbot.boot"
