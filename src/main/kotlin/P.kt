@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2022 ForteScarlet <ForteScarlet@163.com>
+ *  Copyright (c) 2022-2022 ForteScarlet <ForteScarlet@163.com>
  *
  *  本文件是 simply-robot (或称 simple-robot 3.x 、simbot 3.x ) 的一部分。
  *
@@ -53,7 +53,7 @@ sealed class P : SimbotProject() {
 
         val version = Version(
             "3", 0, 0,
-            status = preview(6, 0),
+            status = preview(6, 1),
             isSnapshot = System.getProperty("isSnapshot")?.equals("true", true) ?: false
         )
 
