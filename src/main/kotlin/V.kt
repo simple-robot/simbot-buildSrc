@@ -269,7 +269,7 @@ sealed class V(group: String?, id: String, version: String?) : Dep(group, id, ve
         sealed class Boot(group: String = "org.springframework.boot", id: String, version: String = VERSION) :
             Spring(group, id, version) {
             companion object {
-                const val VERSION = "2.6.1"
+                const val VERSION = "2.6.6"
             }
             object Autoconfigure : Boot(id = "spring-boot-autoconfigure")
             object ConfigurationProcessor : Boot(id = "spring-boot-configuration-processor")
