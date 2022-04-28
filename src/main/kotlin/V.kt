@@ -1,7 +1,7 @@
 /*
- *  Copyright (c) 2021-2022 ForteScarlet <https://github.com/ForteScarlet>
+ *  Copyright (c) 2021-2022 ForteScarlet <ForteScarlet@163.com>
  *
- *  本文件是 simply-robot (或称 simple-robot 3.x、simbot 3.x、simbot3) 的一部分。
+ *  本文件是 simply-robot (或称 simple-robot 3.x 、simbot 3.x ) 的一部分。
  *
  *  simply-robot 是自由软件：你可以再分发之和/或依照由自由软件基金会发布的 GNU 通用公共许可证修改之，无论是版本 3 许可证，还是（按你的决定）任何以后版都可以。
  *
@@ -96,7 +96,7 @@ sealed class V(group: String?, id: String, version: String?) : Dep(group, id, ve
         // https://github.com/Kotlin/kotlinx.coroutines
         sealed class Coroutines(id: String) : Kotlinx(id = "coroutines-$id", VERSION, true) {
             companion object {
-                const val VERSION = "1.6.0-native-mt"
+                const val VERSION = "1.6.1"
             }
 
             object J8 : Coroutines("jdk8")
@@ -118,16 +118,6 @@ sealed class V(group: String?, id: String, version: String?) : Dep(group, id, ve
             object Rx3 : Coroutines("rx3")
             // =======
 
-            // https://github.com/Kotlin/kotlinx.coroutines/blob/master/ui/README.md
-            sealed class UI(id: String) : Coroutines(id) {
-                // kotlinx-coroutines-android -- Dispatchers.Main context for Android applications.
-                // kotlinx-coroutines-javafx -- Dispatchers.JavaFx context for JavaFX UI applications.
-                // kotlinx-coroutines-swing -- Dispatchers.Swing context for Swing UI applications.
-
-                object Android : UI("android")
-                object Javafx : UI("javafx")
-                object Swing : UI("swing")
-            }
 
             // https://github.com/Kotlin/kotlinx.coroutines/blob/master/integration/README.md
             sealed class Integration(id: String) : Coroutines(id) {
@@ -210,44 +200,12 @@ sealed class V(group: String?, id: String, version: String?) : Dep(group, id, ve
         object Api : Slf4j("api")
     }
 
-    sealed class Log4j(id: String) : V("org.apache.logging.log4j", id = "log4j-$id", version = VERSION) {
-        companion object {
-            const val VERSION = "2.17.0"
-        }
-
-        object Api : Log4j("api")
-        object Core : Log4j("core")
-        object Slf4jImpl : Log4j("slf4j-impl")
-    }
-
-    sealed class Logback(id:String) : V("ch.qos.logback", id = "logback-$id", version = VERSION) {
-        companion object {
-            const val VERSION = "1.3.0-alpha13"
-        }
-
-        object Core : Logback("core")
-        object Classic : Logback("classic")
-
-
-    }
 
     /**
      * Okio https://square.github.io/okio/#releases
      */
     object Okio : V("com.squareup.okio", "okio", "3.0.0")
 
-
-    // com.google.auto.service:auto-service
-
-    sealed class AutoService(id: String) : V("com.google.auto.service", id, VERSION) {
-        companion object {
-            const val VERSION = "1.0.1"
-        }
-
-        object AutoService : V.AutoService("auto-service")
-        object Annotations : V.AutoService("auto-service-annotations")
-
-    }
 
 
     /**
@@ -269,7 +227,7 @@ sealed class V(group: String?, id: String, version: String?) : Dep(group, id, ve
         sealed class Boot(group: String = "org.springframework.boot", id: String, version: String = VERSION) :
             Spring(group, id, version) {
             companion object {
-                const val VERSION = "2.6.6"
+                const val VERSION = "2.6.7"
             }
             object Autoconfigure : Boot(id = "spring-boot-autoconfigure")
             object ConfigurationProcessor : Boot(id = "spring-boot-configuration-processor")
