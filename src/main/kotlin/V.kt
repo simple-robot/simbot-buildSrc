@@ -152,40 +152,6 @@ sealed class V(group: String?, id: String, version: String?) : Dep(group, id, ve
 
     }
 
-    // Ktor相关
-    sealed class Ktor(id: String) : V(group = "io.ktor", id = "ktor-$id", VERSION) {
-        companion object {
-            // NoSuchMethodError: java.nio.ByteBuffer.limit(I)Ljava/nio/ByteBuffer;
-            // https://youtrack.jetbrains.com/issue/KTOR-3358
-            const val VERSION = "1.6.4" // 1.6.6
-        }
-
-        // server
-        sealed class Server(id: String) : Ktor(id = "server-$id") {
-            object Core : Server("core")
-            object Netty : Server("netty")
-            object Jetty : Server("jetty")
-            object Tomcat : Server("tomcat")
-            object CIO : Server("cio")
-        }
-
-        // client
-        sealed class Client(id: String) : Ktor(id = "client-$id") {
-            object Serialization : Client("serialization")
-            object Auth : Client("auth")
-            object Websockets : Client("websockets")
-            sealed class Jvm(id: String) : Client(id) {
-                object Core : Jvm("core")
-                object Apache : Jvm("apache")
-                object Java : Jvm("java")
-                object Jetty : Jvm("jetty")
-                object CIO : Jvm("cio")
-                object OkHttp : Jvm("okhttp")
-            }
-        }
-
-
-    }
 
     /**
      * Slf4j 相关
@@ -194,7 +160,7 @@ sealed class V(group: String?, id: String, version: String?) : Dep(group, id, ve
         override val isAbsolute: Boolean get() = true
 
         companion object {
-            const val VERSION = "1.7.32"
+            const val VERSION = "1.7.36"
         }
 
         object Api : Slf4j("api")
